@@ -1,14 +1,18 @@
 import React from 'react'
 
-import MovementSelection from './components/movement-selection/MovementSelection'
+import MovementCheckbox from './components/movement-checkbox/MovementCheckbox'
+import ContactPage from './components/form/Form'
+import Header from './components/header/Header'
+
+import { makeStyles } from '@material-ui/core/styles';
+
 
 const App = () => {
   return (
     <div className="App">
-      SFIT
-      <MovementSelection movement="Squat" />
-      <MovementSelection movement="Bench" />
-      <MovementSelection movement="Deadlift" />
+      <Header />
+      <MovementCheckbox />
+      <ContactPage />
     </div>
   )
 }
