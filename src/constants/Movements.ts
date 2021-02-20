@@ -1,28 +1,29 @@
-interface MovementDescriptor {
-  [name: string]: string
-}
-
 type MovementClass = 'Squat' | 'Bench' | 'Deadlift'
+
+type MovementDescriptor = {
+  name: string
+  isChecked: boolean
+}
 
 export const MovementDict: Record<MovementClass, MovementDescriptor[]> = {
   Squat: [
-    { name: 'Back Squat' },
-    { name: 'Front Squat' },
-    { name: 'Zercher Squat' },
-    { name: 'KettleBell Squat' },
+    { name: 'Back Squat', isChecked: false },
+    { name: 'Front Squat', isChecked: false },
+    { name: 'Zercher Squat', isChecked: false },
+    { name: 'KettleBell Squat', isChecked: false },
   ],
   Bench: [
-    { name: 'Flat Bench' },
-    { name: 'KettleBell Floor Press' },
-    { name: 'Dumbbell Floor Press' },
-    { name: 'Dumbbell Bench' },
-    { name: 'Overhead Bench' },
+    { name: 'Flat Bench', isChecked: false },
+    { name: 'KettleBell Floor Press', isChecked: false },
+    { name: 'Dumbbell Floor Press', isChecked: false },
+    { name: 'Dumbbell Bench', isChecked: false },
+    { name: 'Overhead Bench', isChecked: false },
   ],
   Deadlift: [
-    { name: 'Deadlift' },
-    { name: 'Snatch Pull' },
-    { name: 'Snatch Grip' },
-    { name: 'Clean Pull' },
-    { name: 'Clean Grip' },
+    { name: 'Deadlift', isChecked: false },
+    { name: 'Snatch Pull', isChecked: false },
+    { name: 'Snatch Grip', isChecked: false },
+    { name: 'Clean Pull', isChecked: false },
+    { name: 'Clean Grip', isChecked: false },
   ],
 }

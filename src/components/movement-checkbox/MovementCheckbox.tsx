@@ -33,12 +33,13 @@ const MovementCheckbox: FC = () => {
         </FormLabel>
         <StyledFormControl required>
           {movementNames.map(([movementClass, movementList]) => (
-            <FormGroup>
+            <FormGroup key={movementClass}>
               <FormLabel component="legend">
                 Pick Two Movements for your {movementClass}
               </FormLabel>
               {movementList.map((movement) => (
                 <FormControlLabel
+                  key={movement.name}
                   control={<Checkbox name={movement.name} />}
                   label={movement.name}
                 />
