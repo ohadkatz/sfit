@@ -1,9 +1,6 @@
 import React from 'react'
-import { createMuiTheme } from '@material-ui/core/styles'
 import styled from 'styled-components'
-import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import { AppBar, Button, Grid, createMuiTheme } from '@material-ui/core'
 
 const theme = createMuiTheme()
 

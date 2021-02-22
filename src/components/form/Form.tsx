@@ -1,14 +1,26 @@
 import React, { FC } from 'react'
 import * as Yup from 'yup'
-import Button from '@material-ui/core/Button'
 import { TextField } from 'formik-material-ui'
 import { Formik, Field, Form } from 'formik'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
+import styled from 'styled-components'
+import {
+  createMuiTheme,
+  CssBaseline,
+  makeStyles,
+  createStyles,
+  Container,
+  Grid,
+  Button,
+  FormControlLabel,
+  Checkbox,
+  Theme,
+} from '@material-ui/core'
+
+const theme = createMuiTheme()
+
+const SubmitButton = styled(Button)`
+  margintop: ${theme.spacing(8)};
+`
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required('First name is required'),
@@ -38,8 +50,8 @@ const ContactPage: FC = () => {
         {({ submitForm, isSubmitting }) => (
           <Form>
             <CssBaseline />
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+            <Grid container justify="space-around" direction="row">
+              <Grid item lg={10} md={10} sm={10} xs={10}>
                 <Field
                   component={TextField}
                   name="first name"
@@ -47,7 +59,7 @@ const ContactPage: FC = () => {
                   label="First Name"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item lg={10} md={10} sm={10} xs={10}>
                 <Field
                   component={TextField}
                   name="last name"
@@ -55,13 +67,23 @@ const ContactPage: FC = () => {
                   label="Last Name"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item lg={10} md={10} sm={10} xs={10}>
                 <Field
                   component={TextField}
                   name="email"
                   type="email"
                   label="Email"
                 />
+              </Grid>
+              <Grid item lg={10} md={10} sm={10} xs={10}>
+                <SubmitButton
+                  type="submit"
+                  variant="contained"
+                  color="secondary"
+                  disabled={isSubmitting}
+                >
+                  Submit
+                </SubmitButton>
               </Grid>
             </Grid>
           </Form>
