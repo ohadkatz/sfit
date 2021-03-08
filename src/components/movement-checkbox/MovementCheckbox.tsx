@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { MovementDict } from '../../constants/Movements'
+import { Formik, Field, Form } from 'formik'
 import {
   createMuiTheme,
   FormLabel,
@@ -14,6 +15,8 @@ import styled from 'styled-components'
 
 const theme = createMuiTheme()
 
+const error = []
+
 const StyledFormControl = styled(({ ...rest }) => (
   <FormControl component="fieldset" {...rest} />
 ))`
@@ -26,6 +29,10 @@ const CheckboxContainer = styled.div`
 
 const MovementCheckbox: FC = () => {
   const movementNames = Object.entries(MovementDict)
+  const [state, setState] = React.useState(movementNames[1][1])
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, [event.target.name]: event.target.checked })
+  }
 
   return (
     <CheckboxContainer>
@@ -42,7 +49,9 @@ const MovementCheckbox: FC = () => {
               {movementList.map((movement) => (
                 <FormControlLabel
                   key={movement.name}
-                  control={<Checkbox name={movement.name} />}
+                  control={
+                    <Checkbox name={movement.name} onChange={handleChange} />
+                  }
                   label={movement.name}
                 />
               ))}
