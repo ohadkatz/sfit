@@ -26,7 +26,8 @@ const StyledFormControl = styled(({ ...rest }) => (
 `
 
 const CheckboxContainer = styled.div`
-  display: flex;
+  display: content;
+  align-content: center;
 `
 
 const validationSchema = Yup.object({
@@ -65,7 +66,9 @@ const MovementCheckbox: FC = () => {
             </FormGroup>
           ))}
 
-          <FormHelperText>You can display an error</FormHelperText>
+          <Button variant="contained" color="secondary">
+            Submit
+          </Button>
         </StyledFormControl>
       </StyledFormControl>
     </CheckboxContainer>
